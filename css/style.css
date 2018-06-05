@@ -111,8 +111,16 @@ figure img:hover {
 /* map */
 iframe {
   margin-top: 30px;
-  width: 100%;
+  width: 300px;
   height: 300px;
+  border-radius: 100%;
+  margin: auto;
+  transition: .5S;
+}
+
+iframe:hover {
+  width: 100%;
+  border-radius: 0;
 }
 
 /* img et fom */
