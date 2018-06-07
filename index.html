@@ -94,11 +94,44 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </section>
-      </main>
 
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2576.956194069734!2d4.720275316089992!3d49.76808097938704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ea0e062e03d7e9%3A0xc5cc5f6ee91f2b25!2sCCI+des+Ardennes!5e0!3m2!1sfr!2sfr!4v1527844627903" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div id="map"></div>
+        <script>
+          var map;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              center: new google.maps.LatLng(49.768081, 4.722463),
+              mapTypeId: 'roadmap'
+            });
 
-      <main>
+            var iconBase = 'https://www.baxterhoare.com/wp-content/uploads/2015/09/';
+            var icons = {
+              myIcon: {
+                icon: iconBase + 'map-marker-icon1.png'
+              }
+            };
+
+            var features = [
+              {
+                position: new google.maps.LatLng(49.768081, 4.722463),
+                type: 'myIcon'
+              }];
+
+            // Create markers.
+            features.forEach(function(feature) {
+              var marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK3ztKzrzYH6HPYTEfOqRXcGsj3C-fT0A&callback=initMap">
+        </script>
+
         <section id="3">
           <h2><i class="fas fa-angle-double-right"></i>Sous-titre 3</h2>
 
@@ -145,6 +178,5 @@
         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
       </footer>
-
     </body>
   </html>
